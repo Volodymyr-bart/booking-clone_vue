@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <h1>{{ title }}</h1>
-    <StandartButton @click="increment">Click me</StandartButton>
+    <StandartButton @click="increment" :outlined="true">Click me</StandartButton>
   </div>
 </template>
 
