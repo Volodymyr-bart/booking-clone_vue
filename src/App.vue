@@ -2,15 +2,18 @@
   <div id="app">
     <h1>{{ title }}</h1>
     <StandartButton @click="increment" :outlined="true">Click me</StandartButton>
+    <DirectivesTest />
   </div>
 </template>
 
 <script>
 import StandartButton from "./components/StandartButton.vue";
+import DirectivesTest from "./components/DirectivesTest.vue";
 export default {
   name: "App",
   components: {
     StandartButton,
+    DirectivesTest,
   },
   data() {
     return {
