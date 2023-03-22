@@ -1,19 +1,22 @@
 <template>
   <div id="app">
     <h1>{{ title }}</h1>
-    <StandartButton @click="increment" :outlined="true">Click me</StandartButton>
-    <DirectivesTest />
+    <!-- <StandartButton @click="increment" :outlined="true">Click me</StandartButton> -->
+    <!-- <DirectivesTest /> -->
+    <StarRating :rating="4.5" />
   </div>
 </template>
 
 <script>
-import StandartButton from "./components/StandartButton.vue";
-import DirectivesTest from "./components/DirectivesTest.vue";
+// import StandartButton from "./components/StandartButton.vue";
+// import DirectivesTest from "./components/DirectivesTest.vue";
+import StarRating from "./components/StarRating.vue";
 export default {
   name: "App",
   components: {
-    StandartButton,
-    DirectivesTest,
+    // StandartButton,
+    // DirectivesTest,
+    StarRating,
   },
   data() {
     return {
