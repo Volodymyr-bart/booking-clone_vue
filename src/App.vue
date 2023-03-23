@@ -1,48 +1,46 @@
 <template>
   <div id="app">
-    <h1>{{ title }}</h1>
-    <!-- <StandartButton @click="increment" :outlined="true">Click me</StandartButton> -->
-    <!-- <DirectivesTest /> -->
-    <StarRating :rating="4.5" />
+    <ApartmentsItem
+      :price="1000"
+      imgSrc="https://thumbs.dreamstime.com/b/hotel-13341433.jpg"
+      :descr="apartment.descr"
+      :rating="apartment.rating" />
   </div>
 </template>
-
 <script>
-// import StandartButton from "./components/StandartButton.vue";
-// import DirectivesTest from "./components/DirectivesTest.vue";
-import StarRating from "./components/StarRating.vue";
+import ApartmentsItem from "./components/apartment/ApatmentsItem.vue";
 export default {
   name: "App",
-  components: {
-    // StandartButton,
-    // DirectivesTest,
-    StarRating,
-  },
+  components: { ApartmentsItem },
   data() {
     return {
-      amountOfClicks: 0,
+      apartment: {
+        id: "1234",
+        title: "Item",
+        descr: "lorem",
+        price: 2032,
+        rating: 4.7,
+        location: {
+          city: "Zhytomyr",
+        },
+        owner: {
+          name: "Elen",
+          phone: "063-55-55-666",
+          email: "qwerty@gmail.com",
+        },
+      },
     };
-  },
-  computed: {
-    title() {
-      return `Amount of clics ${this.amountOfClicks}`;
-    },
-  },
-  methods: {
-    increment() {
-      this.amountOfClicks += 1;
-    },
   },
 };
 </script>
 
 <style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  font-family: Montserrat, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
 }
 </style>
