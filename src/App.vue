@@ -1,17 +1,25 @@
 <template>
-  <ContainerPage>
-    <div id="app">
-      <ApartmentsList :items="apartments" />
-    </div>
-  </ContainerPage>
+  <div class="app">
+    <ApartmentsList :items="apartments">
+      <template v-slot:apartment="{ apartment }">
+        <ApartmentsItem
+          :key="apartment.id"
+          :descr="apartment.descr"
+          :rating="apartment.rating"
+          :price="apartment.price"
+          :imgSrc="apartment.imgUrl" />
+      </template>
+    </ApartmentsList>
+  </div>
 </template>
 <script>
 import ApartmentsList from "./components/apartment/ApartmentsList.vue";
-import ContainerPage from "./components/shared/ContainerPage.vue";
+import ApartmentsItem from "./components/apartment/ApatmentsItem.vue";
+
 import apartments from "./components/apartment/apartment";
 export default {
   name: "App",
-  components: { ContainerPage, ApartmentsList },
+  components: { ApartmentsList, ApartmentsItem },
   data() {
     return {
       apartments,
