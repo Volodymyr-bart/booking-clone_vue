@@ -1,11 +1,13 @@
 <template>
-  <main><ContainerPage>UserPage</ContainerPage></main>
+  <main>
+    <ContainerPage>ApartamentPage</ContainerPage>
+  </main>
 </template>
 
 <script>
 import ContainerPage from "./../components/shared/ContainerPage.vue";
 export default {
-  name: "UserPage",
+  name: "ApartamentPage",
   components: { ContainerPage },
 };
 </script>

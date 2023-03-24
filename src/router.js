@@ -1,16 +1,12 @@
-import FooPage from "./pages/UserPage.vue";
-import BarPage from "./pages/HomePage.vue";
+import HomePage from "./pages/HomePage.vue";
+import UserPage from "./pages/UserPage.vue";
+import ApartamentPage from "./pages/ApartamentPage.vue";
 import { createRouter, createWebHistory } from "vue-router";
 
 const routes = [
-  {
-    path: "/foo",
-    component: FooPage,
-  },
-  {
-    path: "/bar",
-    component: BarPage,
-  },
+  { path: "/", component: HomePage },
+  { path: "/user", component: UserPage },
+  { path: "/apartament", component: ApartamentPage },
 ];
 
 const router = createRouter({
