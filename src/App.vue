@@ -28,11 +28,34 @@ export default {
     return {
       text: "",
       apartments,
+      filters: {
+        city: "",
+        price: 0,
+      },
     };
   },
+
+  computed: {
+    filtredApartments() {
+      return this.filterByCityName(this.filterByPrice(this.apartments));
+    },
+  },
   methods: {
-    handleItemClick() {
-      console.log("Item click");
+    handleItemClick({ city, price }) {
+      this.filters.city === city;
+      this.filters.price === price;
+    },
+    filterByCityName(apartments) {
+      if (!this.filters.city) return apartments;
+      return apartments.filter((apartment) => {
+        return apartment.location.city === this.filters.city;
+      });
+    },
+    filterByPrice(apartments) {
+      if (!this.filters.price) return apartments;
+      return apartments.filter((apartment) => {
+        return apartment.price >= this.filters.price;
+      });
     },
   },
 };
