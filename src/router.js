@@ -1,12 +1,14 @@
+import { createRouter, createWebHistory } from "vue-router";
 import HomePage from "./pages/HomePage.vue";
 import UserPage from "./pages/UserPage.vue";
 import ApartamentPage from "./pages/ApartamentPage.vue";
-import { createRouter, createWebHistory } from "vue-router";
+import ErrorPage from "./pages/ErrorPage.vue";
 
 const routes = [
-  { path: "/", component: HomePage },
-  { path: "/user", component: UserPage },
-  { path: "/apartment", component: ApartamentPage },
+  { path: "/", component: HomePage, name: "home" },
+  { path: "/user", component: UserPage, name: "user" },
+  { path: "/apartment/:id", component: ApartamentPage, name: "apartment" },
+  { path: "*", component: ErrorPage, name: "error-page" },
 ];
 
 const router = createRouter({

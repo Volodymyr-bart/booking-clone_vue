@@ -1,6 +1,6 @@
 <template>
   <div class="apartments-item">
-    <router-link to="/apartment">
+    <router-link :to="{ name: 'apartment', params: { id } }">
       <div class="apartments-item__inner">
         <img :src="imgSrc" alt="" class="apartments-item__photo" />
         <div class="apartments-item__content">
@@ -22,6 +22,10 @@ export default {
   name: "ApartmenstItem",
   components: { StarRating },
   props: {
+    id: {
+      type: Array,
+      required: true,
+    },
     descr: {
       type: String,
       default: "",
