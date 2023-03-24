@@ -1,8 +1,9 @@
 <template>
   <div class="app">
     <h2>{{ text }}</h2>
-    <CustomInput v-model="text" />
-    <CustomSelect :items="['name', 'label', 'salary']" />
+    <ContainerPage>
+      <ApartmentsFilterForm class="apartments-filter" @submit="handleItemClick" />
+    </ContainerPage>
     <ApartmentsList :items="apartments">
       <template v-slot:apartment="{ apartment }">
         <ApartmentsItem
@@ -18,12 +19,12 @@
 <script>
 import ApartmentsList from "./components/apartment/ApartmentsList.vue";
 import ApartmentsItem from "./components/apartment/ApatmentsItem.vue";
-import CustomInput from "./components/shared/CustomInput.vue";
-import CustomSelect from "./components/shared/CustomSelect.vue";
+import ApartmentsFilterForm from "./components/apartment/ApartmentsFilterForm.vue";
 import apartments from "./components/apartment/apartment";
+import ContainerPage from "./components/shared/ContainerPage.vue";
 export default {
   name: "App",
-  components: { CustomInput, CustomSelect, ApartmentsList, ApartmentsItem },
+  components: { ApartmentsList, ApartmentsItem, ContainerPage, ApartmentsFilterForm },
   data() {
     return {
       text: "",

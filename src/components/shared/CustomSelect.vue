@@ -1,6 +1,11 @@
 <template>
-  <select v-on="listeners" class="custom-select">
+  <!-- <select v-on="listeners" class="custom-select">
     <option v-for="item in formatedItems" :value="item.value" :key="item.value">{{}}</option>
+  </select> -->
+  <select v-bind="$attrs" v-on:input="updateValue" class="custom-select">
+    <option v-for="item in formatedItems" :value="item.value" :key="item.value">
+      {{ item.label }}
+    </option>
   </select>
 </template>
 
@@ -12,14 +17,12 @@ export default {
       type: Array,
       required: true,
     },
+    modelValue: {
+      type: String,
+      default: "",
+    },
   },
   computed: {
-    listeners() {
-      return {
-        ...this.$attrs,
-        input: (event) => this.$emit("input", event.target.value),
-      };
-    },
     formatedItems() {
       return this.items.map((item) => {
         return typeof item === "object"
@@ -29,6 +32,11 @@ export default {
               label: item,
             };
       });
+    },
+  },
+  methods: {
+    updateValue(event) {
+      this.$emit("update:modelValue", event.target.value);
     },
   },
 };

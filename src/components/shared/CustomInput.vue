@@ -1,10 +1,11 @@
 <template>
   <div class="wrapper-input">
-    <input
+    <input v-bind="$attrs" v-on:input="updateValue" />
+    <!-- <input
       v-on="listeners"
       v-bind="$attrs"
       class="custom-input"
-      :class="!isValid && 'custom-input--error'" />
+      :class="!isValid && 'custom-input--error'" /> -->
     <span v-if="!isValid" class="custom-input__error">{{ error }}</span>
   </div>
 </template>
@@ -48,6 +49,9 @@ export default {
     },
   },
   methods: {
+    updateValue(event) {
+      this.$emit("update:modelValue", event.target.value);
+    },
     validate() {
       this.isValid = this.rules.every((rule) => {
         const { hasPassed, message } = rule(this.value);
