@@ -6,7 +6,7 @@ import { createRouter, createWebHistory } from "vue-router";
 const routes = [
   { path: "/", component: HomePage },
   { path: "/user", component: UserPage },
-  { path: "/apartament", component: ApartamentPage },
+  { path: "/apartment", component: ApartamentPage },
 ];
 
 const router = createRouter({

@@ -1,15 +1,17 @@
 <template>
   <div class="apartments-item">
-    <div class="apartments-item__inner">
-      <img :src="imgSrc" alt="" class="apartments-item__photo" />
-      <div class="apartments-item__content">
-        <p class="apartments-item__description">{{ descr }}</p>
-        <div class="apartments-item__rating">
-          <StarRating :rating="rating" />
+    <router-link to="/apartment">
+      <div class="apartments-item__inner">
+        <img :src="imgSrc" alt="" class="apartments-item__photo" />
+        <div class="apartments-item__content">
+          <p class="apartments-item__description">{{ descr }}</p>
+          <div class="apartments-item__rating">
+            <StarRating :rating="rating" />
+          </div>
+          <div class="apartments-item__price">{{ price }}</div>
         </div>
-        <div class="apartments-item__price">{{ price }}</div>
       </div>
-    </div>
+    </router-link>
   </div>
 </template>
 
