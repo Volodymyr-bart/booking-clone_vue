@@ -24,16 +24,17 @@ export default {
 .btn {
   display: inline-block;
   font-size: 18px;
-  background: rgb(239, 66, 66);
+  background: #ff662d;
   color: #fff;
   cursor: pointer;
   min-width: 220px;
   border: 1px solid transparent;
   padding: 8px 15px;
-  &--outline {
+
+  &--outlined {
     background: none;
-    border: solid 1px rgb(239, 66, 66);
-    color: rgb(239, 66, 66);
+    border: 1px solid #ff662d;
+    color: #ff662d;
   }
 }
 </style>
