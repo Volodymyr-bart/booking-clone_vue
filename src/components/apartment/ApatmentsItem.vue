@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import StarRating from "../StarRating.vue";
+import StarRating from "../shared/StarRating.vue";
 
 export default {
   name: "ApartmenstItem",
