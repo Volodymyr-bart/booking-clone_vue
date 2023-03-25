@@ -23,7 +23,7 @@ export default {
   components: { StarRating },
   props: {
     id: {
-      type: Array,
+      type: String,
       required: true,
     },
     descr: {
