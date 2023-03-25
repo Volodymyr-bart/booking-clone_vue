@@ -1,8 +1,8 @@
 <template>
   <div class="reviews-heading">
-    <ReviewsAvatar />
+    <ReviewsAvatar class="reviews-heading__avatar" />
     <div class="reviews-heading__content">
-      <span class="reviews-heading__author"></span>
+      <span class="reviews-heading__author">{{ author }}</span>
       <StarRating :rating="rating" />
     </div>
   </div>
@@ -27,4 +27,18 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.reviews-heading {
+  display: flex;
+  align-items: center;
+
+  &__avatar {
+    margin-right: 18px;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+  }
+}
+</style>

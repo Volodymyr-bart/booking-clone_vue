@@ -1,11 +1,7 @@
 <template>
   <div class="wrapper-input">
-    <input v-bind="$attrs" v-on:input="updateValue" />
-    <!-- <input
-      v-on="listeners"
-      v-bind="$attrs"
-      class="custom-input"
-      :class="!isValid && 'custom-input--error'" /> -->
+    <input v-bind="$attrs" class="custom-input" v-on:input="updateValue" />
+
     <span v-if="!isValid" class="custom-input__error">{{ error }}</span>
   </div>
 </template>
