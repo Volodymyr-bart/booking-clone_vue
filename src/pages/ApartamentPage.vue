@@ -19,10 +19,16 @@ import ApartmentsMainInfo from "./../components/apartment/ApartmentsMainInfo.vue
 import ApartmentsOwner from "./../components/apartment/ApartmentsOwner.vue";
 import ReviewsSection from "./../components/reviews";
 import reviewsList from "./../components/reviews/reviews.json";
+// import { getApartmentById } from "./../services/apartments.service";
 
 export default {
   name: "ApartamentPage",
   components: { ContainerPage, ApartmentsMainInfo, ApartmentsOwner, ReviewsSection },
+  // data() {
+  //   return {
+  //     apartment :null
+  //   }
+  // },
   computed: {
     reviewsList() {
       return reviewsList;
@@ -31,6 +37,15 @@ export default {
       return apartments.find((apartment) => apartment.id === this.$route.params.id);
     },
   },
+  //   async created() {
+  //   try {
+  //     const { id } = this.$route.params.id;
+  //     const { data } = await getApartmentById(id);
+  //     this.apartment = data;
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // },
 };
 </script>
 
