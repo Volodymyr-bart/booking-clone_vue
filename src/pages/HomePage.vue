@@ -38,6 +38,7 @@ export default {
   data() {
     return {
       text: "",
+      // apartments:[],
       apartments,
       filters: {
         city: "",
@@ -49,6 +50,7 @@ export default {
   async created() {
     try {
       // const { data } = await getApartmentList();
+      // this.apartments = data;
       // console.log(data);
     } catch (error) {
       console.log(error);
