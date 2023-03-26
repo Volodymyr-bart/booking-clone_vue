@@ -26,7 +26,7 @@ export default {
   computed: {
     cities() {
       return [
-        { value: "", label: "Город", selected: true },
+        { value: "All", label: "Город", selected: true },
         "Kyiv",
         "Odesa",
         "Poltava",

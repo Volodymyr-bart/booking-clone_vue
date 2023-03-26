@@ -4,8 +4,8 @@
       <ApartmentsFilterForm class="apartments-filter" @submit="filter" />
     </ContainerPage>
     <ContainerPage>
-      <p v-if="!filteredApartments.length">Ничего не найдено</p>
-      <ApartmentsList v-else :items="filteredApartments">
+      <p v-if="!apartments.length">Ничего не найдено</p>
+      <ApartmentsList v-else :items="apartments">
         <template v-slot:apartment="{ apartment }">
           <ApartmentsItem
             :key="apartment.id"
@@ -45,11 +45,7 @@ export default {
       },
     };
   },
-  computed: {
-    filteredApartments() {
-      return this.filterByCityName(this.filterByPrice(this.apartments));
-    },
-  },
+
   async created() {
     try {
       // const { data } = await getApartmentList();
@@ -62,9 +58,12 @@ export default {
     filter({ city, price }) {
       this.filters.city = city;
       this.filters.price = price;
+      if (city || price) {
+        this.filteredApartments();
+      }
     },
     filterByCityName(apartments) {
-      if (!this.filters.city) return apartments;
+      if (this.filters.city === "All") return apartments;
 
       return apartments.filter((apartment) => {
         return apartment.location.city === this.filters.city;
@@ -76,6 +75,10 @@ export default {
       return apartments.filter((apartment) => {
         return apartment.price >= this.filters.price;
       });
+    },
+
+    filteredApartments() {
+      this.apartments = this.filterByCityName(this.filterByPrice(apartments));
     },
   },
 };
