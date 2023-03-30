@@ -8,8 +8,8 @@
       <ApartmentsList v-else :items="apartments">
         <template v-slot:apartment="{ apartment }">
           <ApartmentsItem
-            :key="apartment.id"
-            :id="apartment.id"
+            :key="apartment._id"
+            :id="apartment._id"
             :descr="apartment.descr"
             :rating="apartment.rating"
             :imgSrc="apartment.imgUrl"
@@ -23,10 +23,10 @@
 <script>
 import ApartmentsList from "./../components/apartment/ApartmentsList.vue";
 import ApartmentsItem from "./../components/apartment/ApatmentsItem.vue";
-import apartments from "./../components/apartment/apartments";
+// import apartments from "./../components/apartment/apartments";
 import ApartmentsFilterForm from "./../components/apartment/ApartmentsFilterForm";
 import ContainerPage from "./../components/shared/ContainerPage";
-// import { getApartmentList } from "./../services/apartments.service";
+import { getApartmentList } from "./../services/apartments.service";
 export default {
   name: "HomePage",
   components: {
@@ -38,8 +38,8 @@ export default {
   data() {
     return {
       text: "",
-      // apartments:[],
-      apartments,
+      apartments: [],
+      // apartments,
       filters: {
         city: "",
         price: 0,
@@ -49,9 +49,9 @@ export default {
 
   async created() {
     try {
-      // const { data } = await getApartmentList();
-      // this.apartments = data;
-      // console.log(data);
+      const { data } = await getApartmentList();
+      this.apartments = data;
+      console.log(data);
     } catch (error) {
       console.log(error);
     }
@@ -80,7 +80,7 @@ export default {
     },
 
     filteredApartments() {
-      this.apartments = this.filterByCityName(this.filterByPrice(apartments));
+      this.apartments = this.filterByCityName(this.filterByPrice(this.apartments));
     },
   },
 };

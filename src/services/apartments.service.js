@@ -1,8 +1,8 @@
 import axios from "../utils/axios";
 
 export const getApartmentList = () => {
-  return axios.get("apartaments");
+  return axios.get("/apartments");
 };
 export const getApartmentById = (id) => {
-  return axios.get(`apartaments/:${id}`);
+  return axios.get(`/apartments/:${id}`);
 };

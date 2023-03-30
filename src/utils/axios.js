@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const axiosInstance = axios.create({
-  baseURL: "https://apt-booking-api.herokuapp.com/",
+  baseURL: "https://api-booking-clone-production.up.railway.app/api",
 });
 
 export default axiosInstance;
