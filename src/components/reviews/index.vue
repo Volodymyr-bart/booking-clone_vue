@@ -1,17 +1,13 @@
 <template>
   <section class="reviews">
     <div class="reviews__heading">
-      <h2 class="reviews__title">Суммарный рейтинг</h2>
+      <h2 class="reviews__title">Загальний рейтинг</h2>
       <div class="reviews__rating">
-        <span>{{ amountOfReviews }} отзыв(ов)</span>
+        <span>{{ amountOfReviews }} відгук(и)</span>
         <StarRating :rating="totalRating" />
       </div>
     </div>
-    <ReviewsItem
-      class="reviews__show-more"
-      v-for="review in currentReviews"
-      :key="review.author"
-      :review="review" />
+    <ReviewsItem v-for="review in currentReviews" :key="review.author" :review="review" />
     <button @click="toggleReviews" class="reviews__show-more">
       {{ buttonText }}
     </button>
