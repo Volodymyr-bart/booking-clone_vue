@@ -14,7 +14,6 @@
 
 <script>
 import ContainerPage from "./../components/shared/ContainerPage.vue";
-// import apartments from "./../components/apartment/apartments";
 import ApartmentsMainInfo from "./../components/apartment/ApartmentsMainInfo.vue";
 import ApartmentsOwner from "./../components/apartment/ApartmentsOwner.vue";
 import ReviewsSection from "./../components/reviews";
@@ -38,9 +37,6 @@ export default {
     reviewsList() {
       return reviewsList;
     },
-    // apartment() {
-    //   return apartments.find((apartment) => apartment._id === this.$route.params.id);
-    // },
   },
   async created() {
     try {

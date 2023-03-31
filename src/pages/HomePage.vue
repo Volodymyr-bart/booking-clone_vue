@@ -4,7 +4,7 @@
       <ApartmentsFilterForm class="apartments-filter" @submit="filter" />
     </ContainerPage>
     <ContainerPage>
-      <p v-if="!apartments.length">Ничего не найдено</p>
+      <p v-if="!apartments.length">Нічого не знайдено</p>
       <ApartmentsList v-else :items="apartments">
         <template v-slot:apartment="{ apartment }">
           <ApartmentsItem
@@ -23,7 +23,6 @@
 <script>
 import ApartmentsList from "./../components/apartment/ApartmentsList.vue";
 import ApartmentsItem from "./../components/apartment/ApatmentsItem.vue";
-// import apartments from "./../components/apartment/apartments";
 import ApartmentsFilterForm from "./../components/apartment/ApartmentsFilterForm";
 import ContainerPage from "./../components/shared/ContainerPage";
 import { getApartmentList } from "./../services/apartments.service";
@@ -39,7 +38,6 @@ export default {
     return {
       text: "",
       apartments: [],
-      // apartments,
       filters: {
         city: "",
         price: 0,
@@ -51,7 +49,6 @@ export default {
     try {
       const { data } = await getApartmentList();
       this.apartments = data;
-      console.log(data);
     } catch (error) {
       console.log(error);
     }
