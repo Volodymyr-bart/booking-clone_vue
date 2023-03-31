@@ -4,7 +4,7 @@
       <h2 class="reviews__title">Суммарный рейтинг</h2>
       <div class="reviews__rating">
         <span>{{ amountOfReviews }} отзыв(ов)</span>
-        <Rating :rating="totalRating" />
+        <StarRating :rating="totalRating" />
       </div>
     </div>
     <ReviewsItem
@@ -20,9 +20,10 @@
 
 <script>
 import ReviewsItem from "./reviews-item";
+import StarRating from "./../../components/shared/StarRating.vue";
 export default {
   name: "ReviewsSection",
-  components: { ReviewsItem },
+  components: { ReviewsItem, StarRating },
   props: {
     reviews: {
       type: Array,

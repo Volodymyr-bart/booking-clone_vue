@@ -1,7 +1,7 @@
 <template>
   <main class="apartment-page">
     <ContainerPage>
-      <div class="apartment-page__content">
+      <div v-if="apartment" class="apartment-page__content">
         <ApartmentsMainInfo :apartment="apartment" />
         <div class="apartment-page__additional-info">
           <ApartmentsOwner class="apartment-page__owner" :owner="apartment.owner" />
@@ -23,7 +23,12 @@ import { getApartmentById } from "./../services/apartments.service";
 
 export default {
   name: "ApartamentPage",
-  components: { ContainerPage, ApartmentsMainInfo, ApartmentsOwner, ReviewsSection },
+  components: {
+    ContainerPage,
+    ApartmentsMainInfo,
+    ApartmentsOwner,
+    ReviewsSection,
+  },
   data() {
     return {
       apartment: null,
@@ -39,8 +44,7 @@ export default {
   },
   async created() {
     try {
-      const { id } = this.$route.params.id;
-      const { data } = await getApartmentById(id);
+      const { data } = await getApartmentById(this.$route.params.id);
       this.apartment = data;
     } catch (error) {
       console.log(error);
